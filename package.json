@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "⚡️ An opinionated CLI that generates boilerplate code instantly.",
   "bin": {
-    "rg": "bin/rg"
+    "rg": "bin/rg",
+    "rgn": "bin/rgn"
   },
   "scripts": {
     "start": "ts-node src/cli.ts",
@@ -45,7 +46,7 @@
     "jest": "^27.5.1",
     "prettier-standard": "^15.0.1",
     "ts-jest": "^27.1.4",
-    "typescript": "^4.6.4"
+    "typescript": "^4.9.0-dev.20220920"
   },
   "dependencies": {
     "chalk": "^4.1.2",

@@ -6,5 +6,5 @@
     "resolveJsonModule": true,
     "outDir": "./dist",
   },
-  "exclude": ["./templates", "./playground", "./node_modules"]
+  "exclude": ["./node_modules", "__tests__", "./templates", "./playground"]
 }

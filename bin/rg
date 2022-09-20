@@ -1,2 +1,2 @@
-#!/usr/bin/env npx ts-node
-require('../src/cli')
+#!/usr/bin/env node
+require('../dist/src/cli')
