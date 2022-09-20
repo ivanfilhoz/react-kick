@@ -4,6 +4,6 @@
   "withTests": true, 
   "withStyles": true, 
   "defaultExport": true, 
-  "typescript": "auto", 
+  "typescript": "auto",
   "formatCmd": "npx prettier --write ."
 }

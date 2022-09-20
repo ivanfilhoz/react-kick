@@ -20,8 +20,9 @@ const promises_1 = require("fs/promises");
 const listr_1 = __importDefault(require("listr"));
 const mkdirp_1 = __importDefault(require("mkdirp"));
 const path_1 = __importDefault(require("path"));
-const _reactgenrc_json_1 = __importDefault(require("../.reactgenrc.json"));
+const _kickrc_json_1 = __importDefault(require("../.kickrc.json"));
 const package_json_1 = __importDefault(require("../package.json"));
+const clearLines_1 = __importDefault(require("./clearLines"));
 const detectConfigFile_1 = __importDefault(require("./detectConfigFile"));
 const detectRootDir_1 = __importDefault(require("./detectRootDir"));
 const detectTypeScript_1 = __importDefault(require("./detectTypeScript"));
@@ -30,8 +31,8 @@ const generate_1 = __importDefault(require("./generate"));
 const handleNamePrefix_1 = __importDefault(require("./handleNamePrefix"));
 const validateName_1 = __importDefault(require("./validateName"));
 commander_1.program
-    .name('rg')
-    .description(`${chalk_1.default.cyan('React Generator')}\n${chalk_1.default.gray(package_json_1.default.description)}`)
+    .name('rk')
+    .description(`${chalk_1.default.cyan('React Kick')}\n${chalk_1.default.gray(package_json_1.default.description)}`)
     .version(package_json_1.default.version)
     .usage('command [options]')
     .option('-o, --out <path>', 'path to add the generated files')
@@ -68,7 +69,7 @@ function command(type, fullName, options) {
             title: 'Detecting environment',
             task: (ctx) => __awaiter(this, void 0, void 0, function* () {
                 // Read options file
-                ctx.config = Object.assign(Object.assign({}, _reactgenrc_json_1.default), ((yield (0, detectConfigFile_1.default)()) || {}));
+                ctx.config = Object.assign(Object.assign({}, _kickrc_json_1.default), ((yield (0, detectConfigFile_1.default)()) || {}));
                 // Handle prefixed names like atom/Hello
                 const { prefix, name } = (0, handleNamePrefix_1.default)(fullName);
                 ctx.name = name;
@@ -147,7 +148,10 @@ function command(type, fullName, options) {
     ]);
     tasks
         .run()
-        .then(ctx => console.log(`\nThe ${ctx.type} ${chalk_1.default.cyan(ctx.name)} has been generated.`))
+        .then(ctx => {
+        (0, clearLines_1.default)(5);
+        console.log(`⚡️ A new ${chalk_1.default.cyan(ctx.name)} ${ctx.type} has been kicked in!`);
+    })
         .catch(err => console.log(`\n${chalk_1.default.red('Error:')} ${err.message}`));
 }
 exports.command = command;

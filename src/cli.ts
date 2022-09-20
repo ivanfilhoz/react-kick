@@ -5,11 +5,12 @@ import { writeFile } from 'fs/promises'
 import Listr from 'listr'
 import mkdirp from 'mkdirp'
 import path from 'path'
-import defaultConfig from '../.reactgenrc.json'
+import defaultConfig from '../.kickrc.json'
 import packageJson from '../package.json'
 import detectConfigFile from './detectConfigFile'
 import detectRootDir from './detectRootDir'
 import detectTypeScript from './detectTypeScript'
+import eraseLines from './eraseLines'
 import folderExists from './folderExists'
 import generate from './generate'
 import handleNamePrefix from './handleNamePrefix'
@@ -26,9 +27,9 @@ type Context = {
 }
 
 program
-  .name('rg')
+  .name('rk')
   .description(
-    `${chalk.cyan('React Generator')}\n${chalk.gray(packageJson.description)}`
+    `${chalk.cyan('React Kick')}\n${chalk.gray(packageJson.description)}`
   )
   .version(packageJson.version)
   .usage('command [options]')
@@ -61,7 +62,7 @@ program
 program.parse()
 
 export function command (type: Type, fullName: string, options: Options) {
-  const tasks = new Listr<Context>([
+  const listr = new Listr<Context>([
     {
       title: 'Preparing generator',
       task: ctx => {
@@ -173,12 +174,13 @@ export function command (type: Type, fullName: string, options: Options) {
     }
   ])
 
-  tasks
+  listr
     .run()
-    .then(ctx =>
+    .then(ctx => {
+      eraseLines(listr.tasks.length)
       console.log(
-        `\nThe ${ctx.type} ${chalk.cyan(ctx.name)} has been generated.`
+        `⚡️ A new ${chalk.cyan(ctx.name)} ${ctx.type} has been kicked in!`
       )
-    )
+    })
     .catch(err => console.log(`\n${chalk.red('Error:')} ${err.message}`))
 }

@@ -1,9 +1,9 @@
-# React Generator
+# React Kick
 
 ⚡️ An opinionated CLI that generates boilerplate code instantly.
 
 ## Why
-Even if your IDE has snippets, creating new components is still a boring, repetitive task that requires several files to be manually created. React Generator automates this task, sparing you from the tedium of copy-pasting repetitive code into your editor.
+Even if your IDE has snippets, creating new components is still a boring, repetitive task that requires several files to be manually created. React Kick automates this task, sparing you from the tedium of copy-pasting repetitive code into your editor.
 
 This tool aims to encourage you as a developer to create more components, each one with its purpose, leveraging the power of React the right way. It also suggests battle-tested patterns that I recommend you adopt in your project.
 
@@ -12,7 +12,7 @@ With a single command, you'll be able to generate the files in the appropriate f
 ## Install
 
 ```bash
-npm install -g react-generator
+npm install -g react-kick
 ```
 
 ## Overview
@@ -20,7 +20,7 @@ npm install -g react-generator
 Let's create a new component named `Greeting`. Run the following command:
 
 ```bash
-$ rg component Greeting
+$ rk component Greeting
 ```
 
 You will notice that a new folder was created at `src/components/Greeting` along with the following files:
@@ -66,15 +66,15 @@ If you have `prettier` installed, the files will be formatted accordingly.
 
 ## Commands
 
-### `rg component <name> [props...]`
+### `rk component <name> [props...]`
 Generates a component in the `src/components` folder.
 
-Aliases: `rg c <name> [props...]`
+Aliases: `rk c <name> [props...]`
 
-### `rg hook <name>`
+### `rk hook <name>`
 Generates a custom hook in the `src/hooks` folder.
 
-Aliases: `rg h <name>`
+Aliases: `rk h <name>`
 
 ## Options
 
@@ -84,11 +84,11 @@ Forces a different output path.
 Aliases: `-o [path]`
 
 ## Configuration
-If you need to customize the settings, just create a `.reactgenrc.json` file in your project root folder, specifying only the properties you need to change.
+If you need to customize the settings, just create a `.kickrc` or `.kickrc.json` file in your project root folder, specifying only the properties you need to change.
 
 The default settings are:
 ```jsonc
-// .reactgenrc.json
+// .kickrc
 {
   "componentsPath": "src/components", // path to components
   "hooksPath": "src/hooks", // path to hooks
@@ -104,7 +104,7 @@ The default settings are:
 
 ### Creating a component with props
 ```bash
-$ rg component Input value onChange
+$ rk component Input value onChange
 
 # Output
 └── components
@@ -117,7 +117,7 @@ $ rg component Input value onChange
 
 ### Creating an [atom](https://github.com/danilowoz/react-atomic-design)
 ```bash
-$ rg component atoms/Button
+$ rk component atoms/Button
 
 # Output
 └── components
@@ -131,7 +131,7 @@ $ rg component atoms/Button
 
 ### Creating a custom hook
 ```bash
-$ rg hook useProducts
+$ rk hook useProducts
 
 # Output
 └── hooks

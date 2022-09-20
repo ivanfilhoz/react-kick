@@ -13,7 +13,7 @@ const promises_1 = require("fs/promises");
 function detectConfigFile() {
     return __awaiter(this, void 0, void 0, function* () {
         const { findUp } = yield import('find-up');
-        const path = yield findUp(['.reactgenrc', '.reactgenrc.json']);
+        const path = yield findUp(['.kickrc', '.kickrc.json']);
         const content = yield (0, promises_1.readFile)(path);
         try {
             return JSON.parse(content.toString());

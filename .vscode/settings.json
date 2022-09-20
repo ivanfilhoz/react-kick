@@ -7,12 +7,15 @@
   "[typescript]": {
     "editor.defaultFormatter": "numso.prettier-standard-vscode"
   },
+  "files.associations": {
+    ".kickrc": "json"
+  },
   "json.schemas": [
     {
-      "fileMatch": [".reactgenrc", ".reactgenrc.json"],
+      "fileMatch": [".kickrc", ".kickrc.json"],
       "schema": {
         "$schema": "http://json-schema.org/draft-07/schema#",
-        "title": "JSON Schema for React Generator configuration files.",
+        "title": "JSON Schema for React Kick configuration files.",
         "description": "⚡️ An opinionated CLI that generates boilerplate code instantly.",
         "type": "object",
         "additionalProperties": false,
@@ -58,7 +61,7 @@
           "formatCmd": {
             "type": "string",
             "description": "",
-            "default": "prettier --write"
+            "default": "npx prettier --write ."
           }
         }
       }

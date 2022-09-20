@@ -3,7 +3,7 @@ import { Config } from './types'
 
 export default async function detectConfigFile () {
   const { findUp } = await import('find-up')
-  const path = await findUp(['.reactgenrc', '.reactgenrc.json'])
+  const path = await findUp(['.kickrc', '.kickrc.json'])
   const content = await readFile(path)
 
   try {
