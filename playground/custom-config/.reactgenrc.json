@@ -1,0 +1,9 @@
+{
+  "componentsPath": "src/my-components",
+  "hooksPath": "src/my-hooks", 
+  "withTests": false, 
+  "withStyles": false, 
+  "defaultExport": false, 
+  "typescript": true, 
+  "formatCmd": "npx prettier-standard --format ."
+}

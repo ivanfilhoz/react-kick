@@ -2,5 +2,5 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  modulePathIgnorePatterns: ['<rootDir>/templates/']
+  modulePathIgnorePatterns: ['<rootDir>/templates/', '<rootDir>/playground/']
 };

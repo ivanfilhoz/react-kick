@@ -1,9 +1,9 @@
 {
-  "componentsPath": "./src/components",
-  "hooksPath": "./src/hooks", 
+  "componentsPath": "src/components",
+  "hooksPath": "src/hooks", 
   "withTests": true, 
   "withStyles": true, 
   "defaultExport": true, 
   "typescript": "auto", 
-  "formatCmd": "prettier --write"
+  "formatCmd": "npx prettier --write ."
 }

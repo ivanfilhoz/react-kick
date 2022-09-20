@@ -66,15 +66,22 @@ If you have `prettier` installed, the files will be formatted accordingly.
 
 ## Commands
 
-### `rg component <nameOrPath> [...props?]`
-Generates a component in the `src/components`.
+### `rg component <name> [props...]`
+Generates a component in the `src/components` folder.
 
-Aliases: `rg comp`, `rg c`
+Aliases: `rg c <name> [props...]`
 
-### `rg hook <nameOrPath>`
+### `rg hook <name>`
 Generates a custom hook in the `src/hooks` folder.
 
-Aliases: `rg h`
+Aliases: `rg h <name>`
+
+## Options
+
+### `--out [path]`
+Forces a different output path.
+
+Aliases: `-o [path]`
 
 ## Configuration
 If you need to customize the settings, just create a `.reactgenrc.json` file in your project root folder, specifying only the properties you need to change.
@@ -83,8 +90,8 @@ The default settings are:
 ```jsonc
 // .reactgenrc.json
 {
-  "componentsPath": "./src/components", // path to components
-  "hooksPath": "./src/hooks", // path to hooks
+  "componentsPath": "src/components", // path to components
+  "hooksPath": "src/hooks", // path to hooks
   "withTests": true, // include test example
   "withStyles": true, // include CSS module
   "defaultExport": true, // export as default
